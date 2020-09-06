@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap')
+
+body 
+    font-family: 'Open Sans'
+    font-weight: 400
+    font-size: 14px
+    text-align: center
+
+.lock
+    overflow: hidden
+
+.container
+    max-width: 1200px
+    padding: 0 15px
+    margin: 0 auto
+    @media screen and (max-width: 1200px) 
+        max-width: 992px
+    @media screen and (max-width: 992px) 
+        max-width: 768px
+    @media screen and (max-width: 768px) 
+        max-width: 576px
+    @media screen and (max-width: 576px) 
+        max-width: 450px
+    @media screen and (max-width: 450px) 
+        max-width: 350px
+    @media screen and (max-width: 350px) 
+        max-width: 250px
+
+hr
+    width: 100%
+    height: 1px 
+    background-color: #e2e2e2
+
+.btn
+    background-color: #00aeef
+    border-radius: 3px
+    color: white
+    font-size: 15px
+    
+.offset
+    padding: 100px 0
+
+.suptitle
+    font-size: 17px
+    font-weight: 500
+    margin-bottom: 7px
+.title
+    font-size: 30px
+    font-weight: 900
+.subtitle
+    margin: 17px auto 45px
+    max-width: 50vw
+    line-height: 32px
+    font-weight: 600
+    color: #666
+
+
+// Header -->
+
+.nav
+    &__top
+        height: 60px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        @media screen and (max-width: 450px) 
+            display: none
+        a
+            color: #666
+            margin-right: 25px
+            margin-left: 5px
+    &__contact
+        display: flex
+        flex-direction: row
+        @media screen and (max-width: 576px)
+            .nav__email
+                display: none
+    &__socials
+        float: right
+    &__main
+        width: 100%
+        height: 100px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+    &__link
+        color: #000
+        font-weight: 600
+        margin-right: 40px
+        position: relative
+        &:last-of-type
+            margin-right: 0px
+        @media screen and (max-width: 992px) 
+            &:nth-child(2n)
+                display: none
+        @media screen and (max-width: 768px) 
+            display: none
+        &::after
+            content: ''
+            display: block
+            width: 0%
+            height: 5px
+            background-color: #00aeef
+            position: absolute
+            bottom: -40px
+            left: 50%
+            transform: translateX(-50%)
+            transition: all 0.3s ease-in-out
+        &:hover
+            &::after
+                width: 150%
+    &__btn
+        width: 90px
+        height: 40px
+        margin-left: 30px
+        @media screen and (max-width: 450px) 
+            display: none
+        &_grey
+            background-color: #c2c2c2
+            margin-left: 6px
+
+.burger
+    display: none
+    width: 20px
+    height: 20px
+    position: relative
+    z-index: 3
+    cursor: pointer
+    @media screen and (max-width: 768px)
+        display: block 
+    &__icon, &::before, &::after
+        content: ""
+        width: 20px
+        height: 2px
+        background-color: black
+        display: block
+        position: absolute
+        transition: all 0.7s ease
+    &__icon
+        top: 50%
+        transform: translateY(-50%)
+    &::before
+        top: 0
+    &::after
+        bottom: 0
+    &_active
+        transition: all 0.7s ease
+    &_active &__icon
+        display: none    
+        background-color: white
+    &_active::before
+        background-color: white
+        top: 12px
+        transform: rotate(45deg)
+    &_active::after
+        background-color: white
+        bottom: 6px
+        transform: rotate(-45deg)
+    &__menu
+        padding: 170px 20px
+        position: fixed
+        right: -100%
+        top: 0
+        width: 100%
+        height: 100% 
+        background: transparent
+        padding: 70px 10 px 20px 10px
+        transition: all 0.5s ease
+        z-index: 2
+        &_active
+            right: 0
+    &__link
+        display: inline-block
+        color: #ffffff
+        text-transform: uppercase
+        font-size: 20px
+        font-weight: bold
+        margin-bottom: 30px
+        text-shadow: 2px 2px 2px #44346d
+    &__overlay
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(50px)
+        &_active
+            display: block;
+
+.intro
+    background: linear-gradient(to right, #1f363b, #2d3829) 0 0 / cover no-repeat
+    color: #ffffff
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    &__wrapper
+        max-width: 60vw
+        margin: 210px 0
+        @media screen and (max-width: 350px) 
+            margin: 100px 0
+    &__title
+        font-size: 40px
+        font-weight: 800
+        line-height: 45px
+        @media screen and (max-width: 350px) 
+            font-size: 30px
+    &__text
+        font-weight: 400
+        margin: 30px 0 50px 0
+        line-height: 26px
+    &__search
+        width: 100%
+        padding: 15px 10px
+        background-color: #ffffff
+        border: 1px solid white
+        border-radius: 4px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        flex-wrap: wrap
+        input, select
+            flex: 0 1 25%
+            height: 50px
+            padding: 14px 0 14px 16px 
+            background-color: #eee
+            border: 1px solid #eee
+            border-radius: 3px
+            color: #6e6e6e
+            font-family: 'Open Sans'
+            font-style: italic
+            font-size: 15px
+            font-weight: 600
+            @media screen and (max-width: 992px) 
+                margin-bottom: 15px
+                flex: 0 0 30%
+            @media screen and (max-width: 500px) 
+                flex: 0 0 100%
+        input
+            &:focus
+                &::placeholder
+                    opacity: 0
+            @media screen and (max-width: 880px) 
+                flex: 0 0 100%     
+            @media screen and (max-width: 325px) 
+                display: none
+        select
+            background: url('../img/header/arrow.png') no-repeat 
+            background-position: bottom 50% right 10px 
+            background-color: #eee
+            appearance: none
+            @media screen and (max-width: 880px) 
+                margin-bottom: 15px
+                flex: 0 0 48%
+            option
+                background-color: inherit
+                border-radius: 5px
+        button
+            display: block
+            height: 50px
+            font-weight: 600
+            flex: 0 1 15%
+            @media screen and (max-width: 992px)
+                flex: 0 0 100% 
+
+// Feature
+
+.feature
+    &__panel
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        flex-wrap: wrap
+        @media screen and (max-width: 576px ) 
+            justify-content: space-around
+    &__item
+        flex: 0 1 31.8%
+        padding: 50px 30px 85px 
+        position: relative
+        @media screen and (max-width: 768px ) 
+            flex: 0 1 100%
+        &_active
+            background-color: #00aeef
+            .feature__title, .feature__text
+                color: #fff
+        &::after
+            content: ''
+            display: block
+            width: 100%
+            height: 2px
+            background-color: #00aeef
+            position: absolute
+            bottom: 0
+            left: 0
+    &__title
+        margin: 24px 0 
+        font-size: 22px
+        font-weight: 600
+    &__text
+        line-height: 32px 
+        color: #666
+        font-weight: 500
+
+//Company
+
+.tab
+    &__nav
+        color: #666
+        font-size: 15px
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+    &__link
+        margin-right: 50px
+        position: relative
+        margin-bottom: 16px
+        cursor: pointer
+        &:first-child
+            margin-left: 15px
+        &_active
+            font-weight: 900
+            &::after
+                content: ''
+                display: block
+                width: 140%
+                height: 5px
+                background-color: #00aeef
+                position: absolute
+                bottom: -17px
+                left: -20%
+    &__content
+        margin: 40px auto
+        display: none
+        flex-direction: row
+        justify-content: space-between
+        flex-wrap: wrap
+        @media screen and (max-width: 1200px) 
+            justify-content: space-around
+        @media screen and (max-width: 576px) 
+            justify-content: space-evenly
+        &_active
+            display: flex
+        img
+            &:hover
+                filter: brightness(.3)
+            @media screen and (max-width: 1200px) 
+                margin-bottom: 25px
+            @media screen and (max-width: 450px) 
+                margin-bottom: 5px
+
+
+// Job
+
+.job
+    &__panel
+        text-align: start
+        display: flex
+        flex-direction: column
+        font-weight: 600
+        font-size: 14px
+        width: 73%
+        @media screen and (max-width: 1200px) 
+            width: 65%
+        @media screen and (max-width: 992px) 
+            width: 60%
+        @media screen and (max-width: 768px) 
+            width: 100%
+    &__wrapper
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin: 95px 0 33px 0
+        flex-wrap: wrap
+        &>img
+            display: block
+            @media screen and (max-width: 768px) 
+                display: none
+    &__item
+        padding: 15px
+        height: 100px
+        display: flex
+        flex-direction: row
+        align-items: center
+        &_active
+            background-color: #00aeef
+            color: white
+            button
+                background-color: #0486b7
+            .job__majority
+                color: white
+        @media screen and (max-width: 450px) 
+            border: 1px solid black
+            border-radius: 5px
+            margin-bottom: 10px
+    &__icon
+        margin-right: 15px
+        cursor: pointer
+    &__info
+        flex: 0 1 235px
+    &__majority
+        color: black
+        font-size: 18px
+        margin-bottom: 7px
+        font-weight: 800
+    &__community 
+        flex: 0 1 180px
+        @media screen and (max-width: 992px) 
+            display: none
+    &__place
+        flex: 0 1 200px
+        @media screen and (max-width: 1200px) 
+            display: none
+    &__wage 
+        flex: 0 1 80px
+        @media screen and (max-width: 576px) 
+            display: none
+    &__btn
+        flex: 0 0 100px
+        height: 50px
+        font-size: 13px
+        font-weight: 600
+        border-radius: 5px
+        @media screen and (max-width: 786px) 
+            flex: 0 0 150px
+        @media screen and (max-width: 576px) 
+            flex: 0 0 100px
+        @media screen and (max-width: 450px) 
+            display: none
+    .btn_grey
+        display: block
+        background-color: #d1d1d1
+        padding: 17px 21px
+        border-radius: 0
+        color: #666666
+        margin-right: auto
+        &:hover
+            img
+                transform: rotate(720deg)
+                transition: all 0.5s ease-in-out
+        img
+            margin-right: 12px
+            
+// feedback
+
+.feedback
+    background: url('../img/feedback.png') 0 0 no-repeat
+
+.slider
+    &__wrapper
+    &__inner
+        margin: 65px 0 20px 0
+    &__item
+        padding: 20px 30px
+        margin: 0 auto
+        text-align: start
+        line-height: 32px
+        color: white
+        background-color: #00aeef
+        border-radius: 5px
+        position: relative
+        max-width: 60vw
+        @media screen and (max-width: 576px) 
+            white-space: pre-line      
+            line-height: 24px
+        @media screen and (max-width: 350px) 
+            padding: 0 20px 50px 20px
+        &::after
+            content: ''
+            display: block
+            width: 84px
+            height: 84px
+            background-color: #666666
+            border: 3px solid white
+            border-radius: 50%
+            position: absolute
+            bottom: -20px
+            right: -20px
+    &__panel
+        width: 90px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin: 0 auto
+    &__dot
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        background-color: #d1d1d1
+        cursor: pointer
+        &_active
+            background-color: #00aeef
+
+// footer
+
+.footer
+    background-color: #222222
+    color: white
+    line-height: 32px
+    text-align: start 
+    @media screen and (max-width: 768px) 
+        text-align: center
+        .offset
+            padding: 30px 0
+    img
+        margin-bottom: 16px
+        align-self: flex-start
+        @media screen and (max-width: 768px) 
+            align-self: center
+    &__main
+        display: flex
+        flex-direction: row
+        justify-content: space-between 
+        @media screen and (max-width: 768px) 
+            flex-direction: column
+            justify-content: space-between
+            align-items: center
+            flex-wrap: wrap
+    &__col
+        display: flex
+        flex-direction: column
+        flex: 0 1 36%
+        @media screen and (max-width: 768px) 
+            flex: 0 0 100%
+            margin-bottom: 15px
+        &:last-child
+            flex: 0 1 20%
+    &__title
+        margin-bottom: 60px
+        font-weight: 600
+        font-size: 22px
+    &__content
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: flex-start
+        flex-wrap: wrap
+        @media screen and (max-width: 768px) 
+            align-items: center
+    &__twit
+        span
+            font-size: 16px
+        a
+            color: white
+            text-decoration: underline
+    &__link
+        color: #6d7a83
+        font-size: 16px
+    &__bottom
+        background-color: black
+        padding: 20px 0
+
+
+
+a
+    &:hover
+        color: #00aeef
+        transition: all 0.3s ease-in-out 
+
+button
+    &:hover
+        background-color: black
+        color: white
+        border: none
+        transition: all 0.5s ease-in-out
+
+
+
+    
+
+    
