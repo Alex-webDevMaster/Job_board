@@ -423,8 +423,8 @@ hr {
 @media screen and (max-width: 500px) {
   .intro__search input, .intro__search select {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
   }
 }
 
